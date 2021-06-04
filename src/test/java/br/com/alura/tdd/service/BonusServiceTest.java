@@ -13,8 +13,7 @@ class BonusServiceTest {
     @Test
     void bonusMaioresQueMilDevemSerZero() {
         BonusService bonusService = new BonusService();
-        BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Higo Nunes", LocalDate.now(), new BigDecimal(25000)));
-        assertEquals(bonus, new BigDecimal("0.00"));
+        assertThrows(IllegalArgumentException.class, () -> bonusService.calcularBonus(new Funcionario("Higo Nunes", LocalDate.now(), new BigDecimal(25000))));
     }
 
     @Test
